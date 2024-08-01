@@ -1,0 +1,20 @@
+name: Run command on Debian 12
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: debian-12
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Setup shell
+      run: |
+        echo "SHELL=/bin/bash" >> $GITHUB_ENV
+
+    - name: Run command without time limit
+      timeout-minutes: 0 # 设置为0以取消时间限制
+      run: |
+        set +m # 取消shell执行命令的时间限制
+        your_command_here # 将此处替换为你想要运行的命令
