@@ -23,11 +23,11 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-22.04]
-        cpu: [2]
+        cpu: [6] # 修改这里，设置cpu为6个核心
         memory: [32]
         include:
           - os: ubuntu-22.04
-            cpu: 2
+            cpu: 6
             memory: 32
             name: "ipq60xx-6.6-360v6-me"
 
