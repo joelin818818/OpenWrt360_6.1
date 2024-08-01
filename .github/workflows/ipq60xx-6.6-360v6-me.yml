@@ -18,8 +18,16 @@ env:
   TZ: Asia/Shanghai
 
 jobs:
-  Build:
-    runs-on: ubuntu-22.04
+  build:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-22.04]
+        cpu: [8]
+        include:
+          - os: ubuntu-22.04
+            cpu: 8
+            name: "8-core Ubuntu 22.04"
 
     steps:
     - name: Check Server Performance
